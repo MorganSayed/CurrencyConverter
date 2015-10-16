@@ -2,9 +2,7 @@ __author__ = 'Magpie'
 
 import web_utility
 def convert(amount, home_currency_code, location_currency_code):
-    print(amount, home_currency_code, location_currency_code)
     url_string = ("https://www.google.com/finance/converter?a=" + amount + "&from=" + home_currency_code + "&to=" + location_currency_code)
-    print(url_string)
     result = web_utility.load_page(url_string)
     result = (result[result.index('result'):])
     return result
@@ -45,4 +43,4 @@ number = conversionresult.index("=")
 number = number + 1
 conversionresult = conversionresult[number:] #Cuts out last of unnecessary data
 
-print("You wanted ", home_symbol, amount, " ", home_currency_code, " to be converted to ", location_currency_code, ". The result is ", home_symbol, amount, " ", home_currency_code, " = ", location_symbol, conversionresult, ".", sep="")
+print("You wanted ", home_symbol, amount, " ", home_currency_code, " to be converted to ", location_currency_code, ". The result is ", home_symbol, amount, " ", home_currency_code, " = ", location_symbol, conversionresult, ".", sep="") #Prints result for the user
